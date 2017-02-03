@@ -6,7 +6,7 @@ docker swarm init --advertise-addr IP_PHYSIQUE
 
 ## Visualisation de l'etat du noeud.
 
-``
+```
 docker info
 ```
 
