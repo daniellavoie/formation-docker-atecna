@@ -1,0 +1,20 @@
+version: '2'
+services:
+  server:
+    build: .
+    image: invivoo/jenkins
+    labels:
+      - "traefik.backend=jenkins"
+      - "traefik.frontend.rule=Host:jenkins.invivoo.cspinformatique.com,jenkins.cspinformatique.com"
+      - "traefik.port=8080"
+    ports:
+      - "8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external:
+      name: traefik_default
